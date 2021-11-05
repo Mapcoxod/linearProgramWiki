@@ -1,0 +1,33 @@
+{% extends 'algoritm/base.html' %}
+
+{% block title %} Двойственный метод {% endblock %}
+
+{% block content %}
+    <main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Двойственный метод</h1>
+            <p>
+                Метод, при котором вначале симплекс-методом решается одна из взаимно двойственных задач, а затем оптимум и оптимальное решение другой задачи находятся с помощью теорем двойственности, называется двойственным симплекс-методом.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <p>
+                <strong>Теорема 1</strong> (Первая теорема двойственности).
+                Если одна из взаимно двойственных задач имеет оптимальное решение, то его имеет и
+                другая, причем оптимальные значения их целевых функций равны:
+            </p>
+            <img src="http://www.ikasteko.ru/photo/dslp/clip_image002.gif" class="img-thumbnail" alt="...">
+
+        </div>
+        <hr>
+    </div> <!-- /container -->
+</main>
+
+{% endblock content %}
