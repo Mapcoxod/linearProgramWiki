@@ -12,3 +12,7 @@ def dual_method(request):
 
 def graphical_method(request):
     return render(request, 'algoritm/graphical_method.html')
+
+
+def north_west_method(request):
+    return render(request, 'algoritm/north_west_method.html')

@@ -1,0 +1,139 @@
+{% extends 'algoritm/base.html' %}
+
+{% block title %} Графический метод {% endblock %}
+
+{% block content %}
+    <main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Метод «северо-западного угла»</h1>
+            <p>
+                Метод «северо-западного угла» состоит в последовательном переборе
+                строк и столбцов транспортной таблицы, начиная с левого столбца и
+                верхней строки, и выписывании максимально возможных отгрузок в соответствующие
+                ячейки таблицы так, чтобы не были превышены заявленные в задаче возможности
+                поставщика или потребности потребителя. На цены доставки в этом методе не
+                обращают внимание, поскольку предполагается дальнейшая оптимизация отгрузок.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Теоретические основы метода «северо-западного угла»
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <div>
+                            Рассмотрим метод северо-западного угла. Сущность его состоит в следующем.  Будем распределять груз в таблице, начиная с загрузки левой верхней, условно называемой «северо-западной», клетки (1,1), двигаясь затем от нее по строке вправо или по столбцу вниз. В клетку (1,1) занесем меньшее из чисел
+                            <img src="data:image/gif;base64,R0lGODlhJgAUAHcAMSH+GlNvZnR3YXJlOiBNaWNyb3NvZnQgT2ZmaWNlACH5BAEAAAAALAAAAwAmABAAhQAAAAAAAAAAOgAAZgA6ZgA6kABmtjoAADoAOjpmZjpmkDpmtjqQ22YAAGYAOmY6AGY6kGZmtmaQkGaQ22a2/5A6AJCQZpDb/7ZmALZmOrZmZraQOraQZrbb/7b/27b//9uQOtuQZtv///+2Zv/bkP/btv//tv//2wECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwa3QIBwSCwah6dKwHBsOp+AJANKpZocl6q2ORp8qKdMIKDYULYAkKH0CCyaSUIHgBFkt5hERDSyH0F+aQUiWyYNTAAkB2dFSYh0j1UkCHd9d0SGUwCGjEJsnUYgg0IgXp4PZ4qMGYEnHBKoThiIhkyusGeZACEWAx4ac1EVjFJIFYMnGKZCSYwhBwIUhgSXzcwVmokQHAdkhMagTtabWFrjUOMZ4U/nTyYPE2hD7/FQGGMBy1r3YwNBADs=" alt="">
+                            то есть
+                            <img src="data:image/gif;base64,R0lGODlhfAAUAHcAMSH+GlNvZnR3YXJlOiBNaWNyb3NvZnQgT2ZmaWNlACH5BAEAAAAALAAAAgB8ABEAhQAAAAAAAAAAOgAAZgA6OgA6ZgA6kABmtjoAADoAOjoAZjo6OjpmZjpmkDpmtjqQ22YAAGYAOmY6AGY6kGZmZmZmkGZmtmaQkGaQ22a2/5A6AJBmAJBmOpBmZpBmkJCQZpDb25Db/7ZmALZmOrZmZraQOraQZrbb/7b/27b//9uQOtuQZtv/29v///+2Zv/bkP/btv//tv//2wECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwb/QIBwSCwaj8ikcqmEcR7MqFTVOEmv2Cz2lQhpjzJN4MB8LbzftNo1SDFjkIzaGIaWFe65XsrOK1Vke0MxEWhMIoGCimpwcot9fG0AMRICci8SiYtFLgECIByeITASAQVunQJeqaCeji6qRTIjAQENJY5TB6QBDkuNMiQpiDEVLV9htcrLdkSwVWEEFi0vCHawaM8nYQbHkENhBVYisVciDNPYSnDNKgUUfptH6gAi3QBhgfT0KpL98SrKqbgnBU6garnAaGiGUJ4SfvfyCdkn0J8kIRKFINrSZWI5JHWGNCRCKmFJOmKWMTMC8VhGimj+Afg2CYKdRiQlJCwy8BgA1JkAThJhJ6TYhkQyTFzQiVEpUz0t8WnQV46fJHoARo4ol3TpTiIba5Lp+lQkAjkyOqQYyMKDzzAJ4e6hZ8/lVI/ZKrrBWdQmgBUfBqAgYUWqo5AYNXSTIeKiYU5tyHmp9lEuOA1fs1QL0EZFrW4iaj3Y3IZ0ik6c3YQVsgKBJTgFDFlGnHWCCQS2fCbeuTqJ5d0O9fBlYpmQoSW/s+IhjplI8uBfuBz33RzAiMwgq2c9E4UShqESvkOf46RZEu9f0P+sEiV0LUnuU4+fH99xe2X2hQQBADs=" alt="">
+                            Если
+                            <img src="data:image/gif;base64,R0lGODlhNgAUAHcAMSH+GlNvZnR3YXJlOiBNaWNyb3NvZnQgT2ZmaWNlACH5BAEAAAAALAAAAwA2ABAAhQAAAAAAAAAAOgAAZgA6OgA6ZgA6kABmtjoAADoAOjo6ADpmZjpmkDpmtjqQ22YAAGYAOmY6AGY6kGZmtmaQkGaQtmaQ22a2/5A6AJA6OpBmOpCQZpC225Db/7ZmALZmOrZmZraQOraQZrbb/7b/27b//9uQOtuQZtu2Ztvbttv///+2Zv/bkP/btv//tv//2wECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwbaQIBwSCwaj8jhCxM4JJ/QaHLpkFqvSRekg8W+MhXVdTUoSV+fQIARupxFiAJHajq0IoHGFFMYATwCXFcpGmt+SR4LEyorgUgmjgAmBmJdLygKBGFGLg9OACwIbkZLn3+mXUIoCFVFLAmCjYJFna2do0J3uFOYmpVEk5UmZbkRo6GjH5EvIhTGT4SGiJ+dTszOo7UAJxsDJCCHS7tKcHJQS5QvHsRC4kMnCAIXnQWz7kVfm1EsEnBrvwDuRRGY6gyGcXsQFkxoxUUECwsbPpTiQU0AdhGRVFRTJggAOw==" alt="...">
+                            то
+                            <img src="data:image/gif;base64,R0lGODlhPAAUAHcAMSH+GlNvZnR3YXJlOiBNaWNyb3NvZnQgT2ZmaWNlACH5BAEAAAAALAAAAwA8ABAAhQAAAAAAAAAAOgAAZgA6ZgA6kABmtjoAADoAOjpmZjpmkDpmtjqQ22YAAGYAOmY6AGY6kGZmZmZmkGZmtmaQkGaQ22a2/5A6AJBmAJBmZpBmkJDb/7ZmALZmZraQZrb//9uQOtv/29v///+2Zv/bkP/btv//tv//2wECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwbRQIBwSCwaj8jk6RIwJJ/QqFS4ZEyv2KjJscl6v8PR4KN9CCwA0sMJxoIMpUdggTx1PhyDSSL6LgOAgYFWRhwJEyIjAl1JIAQRZG1YJg1sJAdoSZeZklckCIyKjEibRXGcAKdGf4KChEQgBX0AIGNCqkN7GGwAJx4UD5m+wKhgeUKUTsPBQycZH7EhGrNLqNWdS7InHLZUF5kci2kH4t7W350kEB4HAQqz5lLXzeidT/NQ+L319nX8TyYeVCAScGA/JAWjcAhkayGgbgeHOAwwJggAOw==" alt="">
+                             и первый потребитель
+                            <img src="data:image/gif;base64,R0lGODlhEQAUAHcAMSH+GlNvZnR3YXJlOiBNaWNyb3NvZnQgT2ZmaWNlACH5BAEAAAAALAAABAARAA8AhQAAAAAAAAAAOgAAZgA6OgA6ZgA6kABmtjoAADoAOjo6ZjqQ22YAAGY6AGaQkGaQ22a2/5A6AJBmAJC225C2/5Db/7ZmALaQOraQZrbb/7b//9uQOtuQZtv///+2Zv/bkP/btv//tv//2wECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwZnQADAEygWCRShcgmwDDQAkeTJXFoOSo+gUhWGGAvlhtr9JLgiTgLSFW6MgUKmLbQYOtHIvf0Nu7dCIA1sQh8IhE1PIhgOg2JUIhcBfnmEHwxwChNLIhGIdEKdn6CioEshDQ+mdUZPQQA7" alt="">
+                            будет полностью удовлетворен. В дальнейшем 1-й столбец таблицы в расчет не принимается: в нем переменные
+                            <img src="data:image/gif;base64,R0lGODlhMwAUAHcAMSH+GlNvZnR3YXJlOiBNaWNyb3NvZnQgT2ZmaWNlACH5BAEAAAAALAAABAAzAA8AhQAAAAAAAAAAOgAAZgA6ZgA6kABmtjoAADpmtjqQtjqQ22YAAGYAOmY6AGZmZmZmkGaQkGaQ22a2/5A6AJBmAJBmZpBmkJDb25Db/7ZmALZmZraQZra2trb//9uQOtv/29v///+2Zv/bkP/btv//tv//2wECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwa0QIBwSCwaj0jkqBEIIEDJqHQqJC0UANHBQO16hZ5BR5gRA0gNgSTb4H6/pUkBCggJMCVNJ2MgPehecU2DhFhEcW51AWtgBA5jb29WiSGLQ1qMkXATlJZCmEUZhkuZhxOEqIZDcXNCdhhVDxSJhxsQDaWaYGYAYWMlFR0eBR8WIFa8cbm6WgkgWlgZd1kH03WJyrpGIkwCEVMeqtna2hmZ4+SRJAwXHFUN3+nqEwSwGYO88kVBADs=" alt="">
+                            для
+                            <img src="data:image/gif;base64,R0lGODlhOQAWAHcAMSH+GlNvZnR3YXJlOiBNaWNyb3NvZnQgT2ZmaWNlACH5BAEAAAAALAAAAwA5ABEAhQAAAAAAAAAAOgAAZgA6ZgA6kABmkABmtjoAADoAOjo6ADo6ZjpmkDpmtjqQ22YAAGYAOmYAZmZmZmaQ22a2/5A6AJBmOpBmZpBmkJDb/7ZmALZmOrZmZraQZrbb/7b//9uQOtu2Ztv/29v///+2Zv/bkP/btv//tv//2wECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwECAwbMQIBwSCwaj4GkcslsOgPHqHRKrVqv2CwAVTlov+DTgwIuojqKJGNUbks1ggwgFPC670SNQ8gtsMsaAX54RH1/hRsBDigWgh8kCIp8XUZcT5JTJQhkRhwZIAYXHpoSEwAag2KchFsVDVNwcpp2GnYlCXKsp3ZRXHsAJHGtvyCDZhWXv0cbDYdHmpzFbLe5tbrSQhwfRyQD21x23d8VDiWvdyUL2wAmER++ealjQqgiGACJzXiBS97wk+GEAUNAwIOuKScg5DqIZ8MqLEEAADs=" alt="">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Схема решения задач линейного программирования графическим методом
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>1. Построить многоугольник решений системы неравенств.</p>
+                            <br>
+                            <p>
+                                2. Начертить из семейства прямых, соответствующих линейной форме,
+                                линию равных значений функции цели. Для построения линии равных
+                                значений придадим F некоторое числовое значение. Во многих задачах
+                                удобно принять, что F = 1. Тогда получим
+                                <img src="https://function-x.ru/linprog/gm008.gif" alt="">.
+                                Запишем это уравнение прямой в отрезках:
+                                <br>
+                                <img src="https://function-x.ru/linprog/gm009.gif" alt="">
+                                <br>
+                                Затем, откладывая на оси
+                                <img src="https://function-x.ru/linprog/gm001.gif" alt="">
+                                число
+                                <img src="https://function-x.ru/linprog/gm010.gif" alt="">
+                                , а на оси
+                                <img src="https://function-x.ru/linprog/gm002.gif" alt="">
+                                - число
+                                <img src="https://function-x.ru/linprog/gm011.gif" alt="">
+                                , найдём точки пересечения линии равных значений с осями координат.
+                                Прямая, проведённая через эти точки, и есть требуемая прямая.
+                            </p>
+                            <br>
+                            <p>
+                                3. Двигать прямую (или линейку) вдоль градиента - вектора
+                                <img src="https://function-x.ru/linprog/gm007.gif" alt="">
+                                 параллельно линии равных значений в сторону многоугольника решений до соприкосновения
+                                с многоугольником решений. Если первая встреча с многоугольником решений произойдёт
+                                в крайней точке с координатами
+                                <img src="https://function-x.ru/linprog/gm012.gif" alt="">
+                                , то в этой точке функция цели достигает минимального значения. Если первая встреча
+                                произойдёт со стороной многоугольника, то данная функция цели достигает
+                                минимума во всех точках этой стороны.
+                            </p>
+                            <br>
+                            <p>
+                                4. Двигаясь дальше, придём к некоторому опорному положению, когда прямая 
+                                будет иметь одну общую точку
+                                <img src="https://function-x.ru/linprog/gm013.gif" alt="">
+                                 с многоугольником решений. В этой точке функция цели достигает своего максимума.
+                            </p>
+                            <br>
+                            <p>
+                                5. Если первоначально построенная линия равных значений пересекает многоугольник
+                                решений, то функция цели достигает минимального значения в вершине многоугольника,
+                                расположенной ближе к началу координат, а максимального значения - в вершине, более
+                                удалённой от начала координат.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="heading3">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                Видео пример решения графическим методом
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe src="https://www.youtube.com/embed/FCMjnTuxKGA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div> <!-- /container -->
+</main>
+
+{% endblock content %}

@@ -17,16 +17,75 @@
 
     <div class="container">
         <!-- Example row of columns -->
-        <div class="row">
-            <p>
-                <strong>Теорема 1</strong> (Первая теорема двойственности).
-                Если одна из взаимно двойственных задач имеет оптимальное решение, то его имеет и
-                другая, причем оптимальные значения их целевых функций равны:
-            </p>
-            <img src="http://www.ikasteko.ru/photo/dslp/clip_image002.gif" class="img-thumbnail" alt="...">
-
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Теоретические основы двойственного симплекс-метода
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <div>
+                            Как и обычный симплексный метод, рассматриваемый метод решения основан на использовании условий допустимости и оптимальности.
+                            <br>
+                            Условие допустимости. В качестве исключаемой переменной выбирается наибольшая по абсолютной величине отрицательная базисная переменная (при наличии альтернатив выбор делается произвольно). Если все базисные переменные неотрицательные, процесс вычислений заканчивается, так как полученное решение допустимое и оптимальное.
+                            <br>
+                            Условие оптимальности. Включаемая в базис переменная выбирается из числа небазисных переменных следующим образом. Вычисляются отношения коэффициентов левой части -уравнения к соответствующим коэффициентам уравнения, ассоциированного с исключаемой переменной. Отношения с положительным или нулевым значением знаменателя не учитываются. В задаче минимизации вводимой переменной должно соответствовать наименьшее из указанных отношений, а в задаче максимизации – отношение, наименьшее по абсолютной величине (при наличии альтернатив выбор делается произвольно). Если знаменатели всех отношений равны нулю или положительные, задача не имеет допустимых решений.
+                            <br>
+                            <p>
+После выбора включаемой в базис и исключаемой переменных для получения следующего решения осуществляется обычная операция преобразования строк симплекс-таблицы.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Схема решения задач линейного программирования двойственным симплекс-методом
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>1. Находят псевдоплан задачи.</p>
+                            <br>
+                            <p>
+                                2. Проверяют этот псевдоплан на оптимальность. Если псевдоплан оптимален, то найдено решение задачи. В противном случае либо устанавливают неразрешимость задачи, либо переходят к новому псевдоплану.
+                            </p>
+                            <br>
+                            <p>
+                                3. Выбирают разрешающую строку с помощью определения наибольшего по абсолютной величине отрицательного числа столбца вектора Р0 и разрешающий столбец с помощью нахождения наименьшего по абсолютной величине отношения элементов (m+1)–и строки к соответствующим отрицательным элементам разрешающей строки.
+                            </p>
+                            <br>
+                            <p>
+                                4. Находят новый псевдоплан и повторяют все действия начиная с этапа 2.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="heading3">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                Видео пример решения двойственного симплекс-метода
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe src="https://www.youtube.com/embed/9BBSHKzpk64" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
         </div>
-        <hr>
     </div> <!-- /container -->
 </main>
 
