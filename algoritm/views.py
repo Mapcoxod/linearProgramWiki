@@ -16,3 +16,8 @@ def graphical_method(request):
 
 def north_west_method(request):
     return render(request, 'algoritm/north_west_method.html')
+
+
+def pare_method(request):
+    return render(request, 'algoritm/pare_method.html')
+
